@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>Assembly-CSharp</AssemblyName>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<TargetFramework>net35</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>11.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup />
+	<ItemGroup />
+	<ItemGroup>
+		<Reference Include="UnityEngine">
+			<HintPath>..\Dragon ball_240_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="echo &quot;Copy file ...&quot; "></Exec>
+		<Exec WorkingDirectory="$(ProjectDir)" Command="copy $(TargetDir)$(ProjectName).dll &quot;..\Dragon ball_240_Data\Managed\$(ProjectName).dll&quot; "></Exec>
+	</Target>
+</Project>
